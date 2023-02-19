@@ -24,8 +24,19 @@
   color: white;
 }
 
-.App-link {
+.icon-link {
   color: #61dafb;
+  padding: 10px;
+}
+
+.contact {
+  display: inline-grid;
+  justify-items: center;
+  column-gap: 10px;
+}
+
+.contact .contact-icons {
+  display: inline-block;
 }
 
 @keyframes App-logo-spin {
