@@ -29,6 +29,10 @@
   padding: 10px;
 }
 
+.icon-link:hover {
+  color: #ffffff;
+}
+
 .contact {
   display: inline-grid;
   justify-items: center;
