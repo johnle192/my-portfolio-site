@@ -9,7 +9,7 @@ type Icon = {
 
 class Contact extends Component {
   render() {
-    return <div className="contact">
+    return <div className="contact-container">
       <p> Connect With Me </p>
       <div className="contact-icons">
         {

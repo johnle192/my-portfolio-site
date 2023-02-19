@@ -16,8 +16,7 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -33,13 +32,13 @@
   color: #ffffff;
 }
 
-.contact {
+.contact-container {
   display: inline-grid;
   justify-items: center;
   column-gap: 10px;
 }
 
-.contact .contact-icons {
+.contact-container .contact-icons {
   display: inline-block;
 }
 
