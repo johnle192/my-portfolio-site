@@ -44,10 +44,36 @@
   column-gap: 10px;
 }
 
-.contact-container .contact-icons {
+.contact-icons {
   display: inline-block;
   margin: 10px;
   padding: 10px;
+}
+
+.resume-icon {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.resume-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.resume-description {
+  border-top: 1px #61dafb solid
+}
+
+.Collapsible__trigger.is-open i {
+  transform: rotate(135deg);
+  transition-duration: 400ms;
+}
+
+.Collapsible__trigger.is-closed i {
+  transform: rotate(-0deg);
+  transition-duration: 400ms;
 }
 
 @keyframes App-logo-spin {
