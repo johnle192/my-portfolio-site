@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from 'logo.svg';
 import 'App.css';
-import About from 'components/About'
+import About from 'components/About';
 import Contact from 'components/Contact';
+import Resume from 'components/Resume';
 
 function App() {
   return (
@@ -14,9 +15,13 @@ function App() {
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
         </div>
-        <About />
-        <Contact />
       </header>
+
+      <main className="App-main">
+        <About />
+        <Resume />
+        <Contact />
+      </main>
     </div>
   );
 }

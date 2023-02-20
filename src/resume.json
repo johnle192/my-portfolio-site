@@ -1,0 +1,43 @@
+[
+  {
+    "id": "clearcover",
+    "experience": "Software Developer | Clearcover, Inc. | Chicago, IL",
+    "duration": "June 2020 - Present, Remotely",
+    "descriptions": [
+      "Implemented features and AB tests for our onboarding flow when users need a quote for car insurance",
+      "Designed and implemented an experiment to move our steps in the flow to increase funnel conversion by 2%",
+      "Designed and lead engineers on an experiment to show customers preset coverage packages",
+      "Mentored and pair-programmed with junior developers and interns, coaching them on domain driven design and development",
+      "Integrated with Clearcover's machine learning models into our onboarding funnel to improve the overall customer mix of the business and decrease our customer acquisition cost",
+      "Architected and implemented a vehicle matching feature that would attempt to match the user vehicle to reported vehicles and give the user the option to prefill their VIN"
+    ]
+  },
+  {
+    "id": "fooda",
+    "experience": "Software Developer | Fooda, Inc. | Chicago, IL",
+    "duration": "September 2018 - May 2020, Remotely since June 2019",
+    "descriptions": [
+      "Designed and implemented features for our Cafeteria Point-of-Sale system with an emphasis on performance",
+      "Designed and implemented GraphQL APIs for our Operations team to manage a restaurant's menu and items",
+      "Collaborated with Front-End web developers to architect and develop GraphQL APIs for a reporting platform for our restaurant partners",
+      "Optimized and refactored core user and event search for Customer Service and Operations teams",
+      "Architected Fooda's email scheduling system with RabbitMQ for customers to view the restaurant of the day",
+      "Conducted user interviews with Product Designers to research opportunities for re-engagement"
+    ]
+  },
+  {
+    "id": "tc",
+    "experience": "Software Developer | Trunk Club | Chicago, IL",
+    "duration": "January 2017 - August 2018, Remotely since June 2019",
+    "descriptions": [
+      "Architected and lead engineers on Trunk Club's first exchange experience which translated to a $1MM opportunity",
+      "Implemented a scheduling feature for trunks that increased customer repurchase rate by 10%",
+      "Built and presented scalable software and fixes to financial and operational analysts",
+      "Upgraded Ruby from 2.1 to 2.4 for backend applications and coached other engineers on the upgrade process",
+      "Provided robust documentation on new features for Product Managers and business stakeholders",
+      "Interviewed prospective software developer candidates",
+      "Collaborated with Mobile and Front-End web developers to architect and implement customer facing features",
+      "Mentored and pair-programmed with junior developers and analysts by providing resources and coaching them on best engineering practices"
+    ]
+  }
+]

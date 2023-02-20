@@ -1,6 +1,6 @@
 import { Component } from "react"
 
-type IconLinkProps = {
+export type IconLinkProps = {
   link: string,
   iconName: string
 }

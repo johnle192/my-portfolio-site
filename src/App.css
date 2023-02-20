@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.App-header, .App-main, .App-footer {
   background-color: #282c34;
   min-height: 100vh;
   display: grid;
@@ -21,6 +21,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.resume-item {
+  justify-content: left;
+  text-align: left;
+  padding: 30px
 }
 
 .icon-link {
@@ -40,6 +46,8 @@
 
 .contact-container .contact-icons {
   display: inline-block;
+  margin: 10px;
+  padding: 10px;
 }
 
 @keyframes App-logo-spin {
