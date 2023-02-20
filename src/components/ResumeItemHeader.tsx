@@ -5,7 +5,7 @@ type ResumeItemHeaderProps = {
   duration: string
 }
 
-class ResumeItemHeader extends Component<ResumeItemHeaderProps, {}> {
+class ResumeItemHeader extends Component<ResumeItemHeaderProps> {
   render() {
     const { experience, duration } = this.props
 
@@ -16,7 +16,7 @@ class ResumeItemHeader extends Component<ResumeItemHeaderProps, {}> {
         <div className="resume-duration">{duration}</div>
       </span>
     </div>
-  };
+  }
 }
 
 export default ResumeItemHeader

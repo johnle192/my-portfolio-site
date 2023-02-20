@@ -10,7 +10,7 @@ class About extends Component {
         to rock climb, lift, dance, bake, and play with my dog, Danny.
       </div>
     </div>
-  };
+  }
 }
 
 export default About;

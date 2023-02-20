@@ -9,7 +9,7 @@ export type ResumeItemProps = {
   descriptions: string[]
 }
 
-class ResumeItem extends Component<ResumeItemProps, {}> {
+class ResumeItem extends Component<ResumeItemProps> {
   render() {
     const { id, experience, duration, descriptions } = this.props
     
@@ -28,7 +28,7 @@ class ResumeItem extends Component<ResumeItemProps, {}> {
         </div>
       </Collapsible>
     </div> 
-  };
+  }
 }
 
 export default ResumeItem;

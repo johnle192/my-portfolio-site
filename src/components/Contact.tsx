@@ -11,7 +11,7 @@ class Contact extends Component {
         { icons.map((icon: IconLinkProps) => <IconLink {...icon} />) }
       </div>
     </div>
-  };
+  }
 }
 
 export default Contact;
