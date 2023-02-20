@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header, .App-main, .App-footer {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,10 +12,8 @@
   color: white;
 }
 
-.resume-item {
-  justify-content: left;
-  text-align: left;
-  padding: 30px
+.about-content {
+  padding: 10px
 }
 
 .icon-link {
@@ -50,22 +37,6 @@
   padding: 10px;
 }
 
-.resume-icon {
-  padding: 10px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.resume-content {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.resume-description {
-  border-top: 1px #61dafb solid
-}
-
 .Collapsible__trigger.is-open i {
   transform: rotate(135deg);
   transition-duration: 400ms;
@@ -76,11 +47,30 @@
   transition-duration: 400ms;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.resume-item {
+  justify-content: left;
+  text-align: left;
+  padding: 30px
+}
+
+.resume-icon {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.resume-content {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.resume-duration {
+  font-size: calc(6px + 2vmin);
+}
+
+.resume-description {
+  border-top: 1px #61dafb solid;
+  font-size: calc(5px + 2vmin);
 }

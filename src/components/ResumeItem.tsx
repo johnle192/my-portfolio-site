@@ -1,5 +1,6 @@
 import { Component } from "react"
 import Collapsible from "react-collapsible"
+import ResumeItemHeader from "components/ResumeItemHeader"
 
 export type ResumeItemProps = {
   id: string,
@@ -14,15 +15,7 @@ class ResumeItem extends Component<ResumeItemProps, {}> {
     
     return <div className="resume-item" key={id}>
       <Collapsible
-        trigger={
-          <div role="button">
-            <i className="resume-icon fa-solid fa-plus" />
-            <span className="resume-content">
-              <div className="resume-experience">{experience}</div>
-              <div className="resume-duration">{duration}</div>
-            </span>
-          </div>
-        }
+        trigger={<ResumeItemHeader experience={experience} duration={duration}/>}
       >
         <div className="resume-description">
           <ul>
