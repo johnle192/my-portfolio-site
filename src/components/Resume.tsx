@@ -1,11 +1,10 @@
-import { Component } from "react"
 import ResumeItem from "components/ResumeItem";
 import type { ResumeItemProps } from "components/ResumeItem";
 import resumeItems from "resume.json"
 
-class Resume extends Component {
-  render() {
-    return <div className="resume-container">
+function Resume() {
+  return (
+    <div className="resume-container">
       <p> Resume </p>
       {
         resumeItems.map(
@@ -13,7 +12,7 @@ class Resume extends Component {
         )
       }
     </div>
-  }
+  )
 }
 
 export default Resume;

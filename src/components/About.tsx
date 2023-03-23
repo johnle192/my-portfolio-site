@@ -1,8 +1,6 @@
-import { Component } from "react"
-
-class About extends Component {
-  render() {
-    return <div className="about-container">
+function About() {
+  return (
+    <div className="about-container">
       <p className="text-3xl font-bold underline"> About Me </p>
       <div className="about-content">
         Hi there, I'm John and this is my website. I'm a self-taught developer currently based out of the DFW area. 
@@ -10,7 +8,7 @@ class About extends Component {
         to rock climb, lift, dance, bake, and play with my dog, Danny.
       </div>
     </div>
-  }
+  )
 }
 
 export default About;
