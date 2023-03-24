@@ -1,32 +1,34 @@
-import Collapsible from "react-collapsible"
-import ResumeItemHeader from "components/ResumeItemHeader"
+import Collapsible from 'react-collapsible';
+import ResumeItemHeader from 'components/ResumeItemHeader';
 
 export type ResumeItemProps = {
-  id: string,
-  experience: string,
-  duration: string,
-  descriptions: string[]
-}
+  id: string;
+  experience: string;
+  duration: string;
+  descriptions: string[];
+};
 
-function ResumeItem({ id, experience, duration, descriptions }: ResumeItemProps){
-    
+export default function ResumeItem({
+  id,
+  experience,
+  duration,
+  descriptions
+}: ResumeItemProps) {
   return (
     <div className="resume-item" key={id}>
       <Collapsible
-        trigger={<ResumeItemHeader experience={experience} duration={duration}/>}
+        trigger={
+          <ResumeItemHeader experience={experience} duration={duration} />
+        }
       >
         <div className="resume-description">
           <ul>
-            {
-              descriptions.map(
-                (description: string, index) => <li key={`${id}.${index}`}> {description} </li>
-              )
-            }
+            {descriptions.map((description: string, index) => (
+              <li key={`${id}.${index}`}> {description} </li>
+            ))}
           </ul>
         </div>
       </Collapsible>
     </div>
-  )
+  );
 }
-
-export default ResumeItem;

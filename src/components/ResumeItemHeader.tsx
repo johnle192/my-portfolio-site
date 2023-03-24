@@ -1,9 +1,12 @@
 type ResumeItemHeaderProps = {
-  experience: string,
-  duration: string
-}
+  experience: string;
+  duration: string;
+};
 
-function ResumeItemHeader({ experience, duration }: ResumeItemHeaderProps) {
+export default function ResumeItemHeader({
+  experience,
+  duration
+}: ResumeItemHeaderProps) {
   return (
     <div role="button">
       <i className="resume-icon fa-solid fa-plus" />
@@ -12,7 +15,5 @@ function ResumeItemHeader({ experience, duration }: ResumeItemHeaderProps) {
         <div className="resume-duration">{duration}</div>
       </span>
     </div>
-  )
+  );
 }
-
-export default ResumeItemHeader

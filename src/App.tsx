@@ -4,7 +4,7 @@ import Contact from 'components/Contact';
 import Resume from 'components/Resume';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <div className="App">
@@ -19,5 +19,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
