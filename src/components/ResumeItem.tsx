@@ -15,7 +15,7 @@ export default function ResumeItem({
   descriptions
 }: ResumeItemProps) {
   return (
-    <div className="resume-item" key={id}>
+    <div className="resume-item primary-container" key={id}>
       <Collapsible
         trigger={
           <ResumeItemHeader experience={experience} duration={duration} />

@@ -1,3 +1,5 @@
+/*TODO: figure out how to organize these later*/
+@import url(theme.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +11,6 @@
 .App-header,
 .App-main,
 .App-footer {
-  background-color: rgb(5, 28, 92);
   min-height: 100vh;
   display: grid;
   align-items: center;
@@ -23,7 +24,7 @@
 }
 
 .icon-link {
-  color: #894000;
+  color: #5c4505;
   padding: 10px;
 }
 
@@ -70,10 +71,6 @@
   display: inline-block;
   vertical-align: middle;
   padding: 10px;
-}
-
-.resume-duration {
-  font-size: calc(6px + 2vmin);
 }
 
 .resume-description {
