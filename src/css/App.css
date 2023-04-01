@@ -1,79 +1,65 @@
-/*TODO: figure out how to organize these later*/
-@import url(theme.css);
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*.App {*/
+/*  text-align: center;*/
+/*}*/
 
-.App {
-  text-align: center;
-}
+/*.App-header,*/
+/*.App-main,*/
+/*.App-footer {*/
+/*  min-height: 100vh;*/
+/*  display: grid;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  font-size: calc(10px + 2vmin);*/
+/*  color: white;*/
+/*}*/
 
-.App-header,
-.App-main,
-.App-footer {
-  min-height: 100vh;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/*.about-content {*/
+/*  padding: 10px;*/
+/*}*/
 
-.about-content {
-  padding: 10px;
-}
+/*.icon-link {*/
+/*  color: #5c4505;*/
+/*  padding: 10px;*/
+/*}*/
 
-.icon-link {
-  color: #5c4505;
-  padding: 10px;
-}
+/*.contact-container {*/
+/*  display: inline-grid;*/
+/*  justify-items: center;*/
+/*  column-gap: 10px;*/
+/*}*/
 
-.icon-link:hover {
-  color: #ffffff;
-}
+/*.contact-icons {*/
+/*  display: inline-block;*/
+/*  margin: 10px;*/
+/*  padding: 10px;*/
+/*}*/
 
-.contact-container {
-  display: inline-grid;
-  justify-items: center;
-  column-gap: 10px;
-}
+/*.resume-item {*/
+/*  justify-content: left;*/
+/*  text-align: left;*/
+/*  padding: 30px;*/
+/*}*/
 
-.contact-icons {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px;
-}
+/*.resume-icon {*/
+/*  padding: 10px;*/
+/*  display: inline-block;*/
+/*  text-align: center;*/
+/*  vertical-align: middle;*/
+/*}*/
 
-.Collapsible__trigger.is-open i {
-  transform: rotate(135deg);
-  transition-duration: 400ms;
-}
+/*.resume-content {*/
+/*  display: inline-block;*/
+/*  vertical-align: middle;*/
+/*  padding: 10px;*/
+/*}*/
 
-.Collapsible__trigger.is-closed i {
-  transform: rotate(-0deg);
-  transition-duration: 400ms;
-}
+/*.resume-description {*/
+/*  border-top: 1px #894000 solid;*/
+/*  font-size: calc(5px + 2vmin);*/
+/*}*/
 
-.resume-item {
-  justify-content: left;
-  text-align: left;
-  padding: 30px;
-}
+/*.nav-container {*/
+/*}*/
+/*.nav-links {*/
 
-.resume-icon {
-  padding: 10px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.resume-content {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 10px;
-}
-
-.resume-description {
-  border-top: 1px #894000 solid;
-  font-size: calc(5px + 2vmin);
-}
+/*}*/

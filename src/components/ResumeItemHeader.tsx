@@ -8,12 +8,14 @@ export default function ResumeItemHeader({
   duration
 }: ResumeItemHeaderProps) {
   return (
-    <div role="button">
-      <i className="resume-icon fa-solid fa-plus" />
-      <span className="resume-content">
-        <div className="resume-experience headline-large">{experience}</div>
-        <div className="resume-duration headline-medium">{duration}</div>
-      </span>
+    <div role="button" className="flex flex-row">
+      <div className="m-4 text-center align-middle">
+        <i className="resume-icon fa-solid fa-plus" />
+      </div>
+      <div className="resume-content">
+        <div className="resume-experience headline-small">{experience}</div>
+        <div className="resume-duration body-medium">{duration}</div>
+      </div>
     </div>
   );
 }
