@@ -4,16 +4,25 @@ import Contact from './Contact';
 
 const Nav: FC = () => {
   return (
-    <div className="nav-container m-12">
+    <div className="nav-container p-12 shadow-xl primary-container">
       <h1 className="nav-header headline-large">
-        <NavLink to="/">John Le</NavLink>
+        <NavLink
+          to="/"
+          className={(isActive): string => (isActive ? 'secondary-text' : '')}
+        >
+          John Le
+        </NavLink>
       </h1>
       <ul className="nav-links label-large">
         <li>
-          <NavLink to="/">About</NavLink>
+          <NavLink to="/">
+            <h3 className="headline-small">About</h3>
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/resume">Resume</NavLink>
+          <NavLink to="/resume">
+            <h3 className="headline-small">Resume</h3>
+          </NavLink>
         </li>
       </ul>
       <Contact />

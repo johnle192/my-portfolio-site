@@ -1,6 +1,4 @@
-import 'css/App.css';
 import About from 'components/About';
-import Contact from 'components/Contact';
 import Resume from 'components/Resume';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
