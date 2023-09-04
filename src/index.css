@@ -37,11 +37,6 @@ code {
   transition-duration: 400ms;
 }
 
-/*TODO: figure out how to do this with tailwind*/
-.icon-link:hover {
-  color: #ffffff;
-}
-
 ul {
   list-style-type: none;
   padding: 0;
