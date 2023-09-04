@@ -7,11 +7,15 @@ const Nav: FC = () => {
 
   return (
     <div className="nav-container p-12 shadow-xl primary-container">
+      <div className="h-32 w-32 rounded-full overflow-hidden shadow-xl">
+        <img
+          src="../../public/images/john.jpg"
+          alt="John Le"
+          className="h-full-w-full object-cover"
+        />
+      </div>
       <h1 className="nav-header headline-large">
-        <NavLink
-          to="/"
-          className={(isActive): string => (isActive ? 'secondary-text' : '')}
-        >
+        <NavLink to="/" onClick={() => setActiveNavItem('about')}>
           John Le
         </NavLink>
       </h1>

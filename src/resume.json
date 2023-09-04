@@ -4,6 +4,7 @@
     "experience": "Software Developer | Clearcover, Inc. | Chicago, IL",
     "duration": "June 2020 - Present, Remotely",
     "descriptions": [
+      "Won a hackathon building a deployment dashboard for our microservices with React, JS, and Tailwind",
       "Implemented features and AB tests for our onboarding flow when users need a quote for car insurance",
       "Designed and implemented an experiment to move our steps in the flow to increase funnel conversion by 2%",
       "Designed and lead engineers on an experiment to show customers preset coverage packages",
@@ -28,7 +29,7 @@
   {
     "id": "tc",
     "experience": "Software Developer | Trunk Club | Chicago, IL",
-    "duration": "January 2017 - August 2018, Remotely since June 2019",
+    "duration": "January 2017 - August 2018",
     "descriptions": [
       "Architected and lead engineers on Trunk Club's first exchange experience which translated to a $1MM opportunity",
       "Implemented a scheduling feature for trunks that increased customer repurchase rate by 10%",
