@@ -1,5 +1,4 @@
-import Collapsible from 'react-collapsible';
-import ResumeItemHeader from 'components/ResumeItemHeader';
+import React, { useState } from 'react';
 
 export type ResumeItemProps = {
   id: string;
@@ -14,21 +13,35 @@ export default function ResumeItem({
   duration,
   descriptions
 }: ResumeItemProps) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const iconRotationClass = isOpen ? 'is-open' : 'is-closed';
+
   return (
-    <div className="resume-item" key={id}>
-      <Collapsible
-        trigger={
-          <ResumeItemHeader experience={experience} duration={duration} />
-        }
+    <div className="resume-item flex-col" key={id}>
+      <div
+        role="button"
+        className="flex flex-row"
+        onClick={() => setIsOpen((prevState) => !prevState)}
       >
-        <div className="resume-description">
+        <div
+          className={`m-4 text-center align-middle icon ${iconRotationClass}`}
+        >
+          <i className="resume-icon fa-solid fa-plus" />
+        </div>
+        <div className="resume-content">
+          <div className="resume-experience headline-small">{experience}</div>
+          <div className="resume-duration body-medium">{duration}</div>
+        </div>
+      </div>
+      {isOpen && (
+        <div className="resume-description pl-16">
           <ul>
             {descriptions.map((description: string, index) => (
-              <li key={`${id}.${index}`}> {description} </li>
+              <li key={`${id}.${index}`}>{description}</li>
             ))}
           </ul>
         </div>
-      </Collapsible>
+      )}
     </div>
   );
 }

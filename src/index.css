@@ -27,18 +27,18 @@ code {
     monospace;
 }
 
-.Collapsible__trigger.is-open i {
+.is-open i {
   transform: rotate(135deg);
   transition-duration: 400ms;
 }
 
-.Collapsible__trigger.is-closed i {
+.is-closed i {
   transform: rotate(-0deg);
   transition-duration: 400ms;
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: disc;
   padding: 0;
   margin: 0;
 }

@@ -9,7 +9,7 @@ const Nav: FC = () => {
     <div className="nav-container p-12 shadow-xl primary-container">
       <div className="h-32 w-32 rounded-full overflow-hidden shadow-xl">
         <img
-          src="../../public/images/john.jpg"
+          src="/images/john.jpg"
           alt="John Le"
           className="h-full-w-full object-cover"
         />

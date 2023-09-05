@@ -4,7 +4,7 @@
     "experience": "Software Developer | Clearcover, Inc. | Chicago, IL",
     "duration": "June 2020 - Present, Remotely",
     "descriptions": [
-      "Won a hackathon building a deployment dashboard for our microservices with React, JS, and Tailwind",
+      "Won a hackathon building a deployment dashboard for our microservices with React, NextJS, and Tailwind",
       "Implemented features and AB tests for our onboarding flow when users need a quote for car insurance",
       "Designed and implemented an experiment to move our steps in the flow to increase funnel conversion by 2%",
       "Designed and lead engineers on an experiment to show customers preset coverage packages",
