@@ -15,12 +15,13 @@ export default function ResumeItem({
 }: ResumeItemProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const iconRotationClass = isOpen ? 'is-open' : 'is-closed';
+  const borderClass = isOpen ? 'border-b border-white border-solid' : '';
 
   return (
-    <div className="resume-item flex-col" key={id}>
+    <div className="resume-item flex" key={id}>
       <div
         role="button"
-        className="flex flex-row"
+        className=""
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
         <div
@@ -28,20 +29,22 @@ export default function ResumeItem({
         >
           <i className="resume-icon fa-solid fa-plus" />
         </div>
-        <div className="resume-content">
+      </div>
+      <div>
+        <div className={`resume-content ${borderClass}`}>
           <div className="resume-experience headline-small">{experience}</div>
           <div className="resume-duration body-medium">{duration}</div>
         </div>
+        {isOpen && (
+          <div className="resume-description pl-4">
+            <ul className="resume-description-items">
+              {descriptions.map((description: string, index) => (
+                <li key={`${id}.${index}`}>{description}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-      {isOpen && (
-        <div className="resume-description pl-16">
-          <ul>
-            {descriptions.map((description: string, index) => (
-              <li key={`${id}.${index}`}>{description}</li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 }

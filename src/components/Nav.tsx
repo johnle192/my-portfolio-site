@@ -20,7 +20,6 @@ const Nav: FC = () => {
         </NavLink>
       </h1>
       <ul className="nav-links label-large">
-        {/*TODO: figure out what else you want to do when active*/}
         <li>
           <NavLink
             to="/"
