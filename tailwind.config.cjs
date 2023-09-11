@@ -13,6 +13,9 @@ module.exports = {
         '.text-primary': {
           color: 'var(--md-sys-color-primary)',
         },
+        '.text-secondary': {
+          color: 'var(--md-sys-color-secondary)',
+        },
       };
 
       addUtilities(newUtilities, ['responsive', 'hover']);
