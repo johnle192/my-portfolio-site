@@ -59,7 +59,7 @@ const Nav: FC = () => {
         </li>
       </ul>
       <Contact />
-      <div className={`text-secondary body-small absolute bottom-0 m-4`}>
+      <div className={`text-secondary body-small absolute bottom-0 my-4`}>
         <div>Last updated:</div>
         <div>{lastModified}</div>
       </div>
