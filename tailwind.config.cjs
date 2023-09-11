@@ -4,5 +4,18 @@ module.exports = {
   theme: {
     extend: {}
   },
-  plugins: []
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.border-on-primary-container': {
+          borderColor: 'var(--md-sys-color-on-primary-container)',
+        },
+        '.text-primary': {
+          color: 'var(--md-sys-color-primary)',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }
+  ]
 };

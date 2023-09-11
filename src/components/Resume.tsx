@@ -10,21 +10,27 @@ export default function Resume() {
   return (
     <div className="resume-container m-20 max-w-3xl">
       <h2 className="headline-large"> Resume </h2>
-      <div className="flex space-x-4">
+      <div className="flex space-x-4 on-primary-container-text">
         <div
-          className="hover:text-white cursor-pointer headline-small"
+          className={`hover:text-primary cursor-pointer headline-small ${
+            resumeSection === 'experience' && 'primary-text'
+          }`}
           onClick={() => setResumeSection('experience')}
         >
           Experience
         </div>
         <div
-          className="hover:text-white cursor-pointer headline-small"
+          className={`hover:text-primary cursor-pointer headline-small ${
+            resumeSection === 'skills' && 'primary-text'
+          }`}
           onClick={() => setResumeSection('skills')}
         >
           Skills
         </div>
         <div
-          className="hover:text-white cursor-pointer headline-small"
+          className={`hover:text-primary cursor-pointer headline-small ${
+            resumeSection === 'education' && 'primary-text'
+          }`}
           onClick={() => setResumeSection('education')}
         >
           Education

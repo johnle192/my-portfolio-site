@@ -15,7 +15,9 @@ export default function ResumeItem({
 }: ResumeItemProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const iconRotationClass = isOpen ? 'is-open' : 'is-closed';
-  const borderClass = isOpen ? 'border-b border-white border-solid' : '';
+  const borderClass = isOpen
+    ? 'border-b border-on-primary-container border-solid'
+    : '';
 
   return (
     <div className="resume-item flex" key={id}>
