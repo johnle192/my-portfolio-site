@@ -1,9 +1,10 @@
-import React, { FC, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { FC, useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import Contact from './Contact';
 
 const Nav: FC = () => {
   const [activeNavItem, setActiveNavItem] = useState<string>('about');
+  const location = useLocation();
   const lastModified = new Date(document.lastModified).toLocaleString('en-US', {
     day: 'numeric',
     month: 'numeric',
@@ -13,6 +14,11 @@ const Nav: FC = () => {
     timeZone: 'UTC',
     timeZoneName: 'short'
   });
+
+  useEffect(() => {
+    const pathname = location.pathname;
+    setActiveNavItem(pathname === '/' ? 'about' : pathname.substring(1));
+  }, [location]);
 
   return (
     <div className="nav-container p-12 shadow-xl primary-container relative">
