@@ -36,30 +36,34 @@ export default function Resume() {
           Education
         </div>
       </div>
-      {resumeSection === 'experience' &&
-        resumeItems.experience.map((resumeItem: ResumeItemProps) => (
-          <ResumeItem {...resumeItem} />
-        ))}
+      <div className="my-2">
+        {resumeSection === 'experience' &&
+          resumeItems.experience.map((resumeItem: ResumeItemProps) => (
+            <ResumeItem {...resumeItem} />
+          ))}
 
-      {resumeSection === 'skills' && (
-        <div className="pl-8">
-          <ul className="resume-skills">
-            {resumeItems.skills.map((skill: string) => (
-              <li key={skill}>{skill}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {resumeSection === 'education' && (
-        <div className="resume-education">
-          <div className="resume-education-name headline-small">{name}</div>
-          <div className="resume-education-duration body-medium">
-            {duration}
+        {resumeSection === 'skills' && (
+          <div className="pl-8">
+            <ul className="resume-skills">
+              {resumeItems.skills.map((skill: string) => (
+                <li key={skill} className="leading-relaxed">
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="resume-education-major body-medium">{major}</div>
-        </div>
-      )}
+        )}
+
+        {resumeSection === 'education' && (
+          <div className="resume-education">
+            <div className="resume-education-name headline-small">{name}</div>
+            <div className="resume-education-duration body-medium">
+              {duration}
+            </div>
+            <div className="resume-education-major body-medium">{major}</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

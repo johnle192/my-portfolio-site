@@ -33,15 +33,17 @@ export default function ResumeItem({
         </div>
       </div>
       <div>
-        <div className={`resume-content ${borderClass}`}>
+        <div className={`resume-content py-2 ${borderClass}`}>
           <div className="resume-experience headline-small">{experience}</div>
           <div className="resume-duration body-medium">{duration}</div>
         </div>
         {isOpen && (
-          <div className="resume-description pl-4">
+          <div className="resume-description ml-4 my-2">
             <ul className="resume-description-items">
               {descriptions.map((description: string, index) => (
-                <li key={`${id}.${index}`}>{description}</li>
+                <li key={`${id}.${index}`} className="leading-relaxed">
+                  {description}
+                </li>
               ))}
             </ul>
           </div>
