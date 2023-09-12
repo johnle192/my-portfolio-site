@@ -12,8 +12,10 @@
 /coverage
 
 # production
-/build
 /dist
+.firebase
+.firebaserc
+firebase.json
 
 # misc
 .DS_Store
