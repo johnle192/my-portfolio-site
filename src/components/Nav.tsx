@@ -21,7 +21,7 @@ const Nav: FC = () => {
   }, [location]);
 
   return (
-    <div className="nav-container p-12 shadow-xl primary-container relative">
+    <div className="nav-container p-12 shadow-xl primary-container sticky top-0">
       <div className="h-32 w-32 rounded-full overflow-hidden shadow-xl">
         <img
           src="/images/john.jpg"
