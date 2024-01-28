@@ -39,7 +39,7 @@ export default function ResumeItem({
         </div>
         {isOpen && (
           <div className="resume-description ml-4 my-2">
-            <ul className="resume-description-items">
+            <ul className="resume-description-items list-disc p-0 m-0">
               {descriptions.map((description: string, index) => (
                 <li key={`${id}.${index}`} className="leading-relaxed">
                   {description}

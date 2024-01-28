@@ -1,9 +1,19 @@
 {
   "experience": [
     {
+      "id": "beyond",
+      "experience": "Senior Software Developer | Beyond Finance | Chicago, IL",
+      "duration": "October 2023 - Present, Remotely",
+      "descriptions": [
+        "Implemented Knapsack Pro and cut test suite runtime by 50%",
+        "Integrated a third party vendor to enable multi-factor authentication",
+        "Facilitated the migration of credit pull vendors"
+      ]
+    },
+    {
       "id": "clearcover",
-      "experience": "Software Developer | Clearcover, Inc. | Chicago, IL",
-      "duration": "June 2020 - Present, Remotely",
+      "experience": "Senior Software Developer | Clearcover, Inc. | Chicago, IL",
+      "duration": "June 2020 - September 2023, Remotely",
       "descriptions": [
         "Won a hackathon building a deployment dashboard for our microservices with React, NextJS, and Tailwind",
         "Implemented features and AB tests for our onboarding flow when users need a quote for car insurance",
@@ -43,7 +53,51 @@
       ]
     }
   ],
-  "skills": ["Ruby", "Rails", "GraphQL", "JavaScript", "TypeScript", "React", "Kotlin", "Spring Boot", "ActiveRecord", "RSpec", "RabbitMQ", "PostgreSQL", "ElasticSearch", "Apiary", "Apache Kafka", "HTML", "CSS", "TailwindCSS", "Git", "Kubernetes", "JIRA", "Confluence", "TDD", "Pair Programming", "Agile Web Development", "Service Oriented Architecture", "OOP", "User Research"],
+  "skills": [
+    {
+      "focus": "Backend",
+      "skills": [
+        "ActiveRecord",
+        "Apache Kafka",
+        "ElasticSearch",
+        "GraphQL",
+        "Kotlin",
+        "PostgreSQL",
+        "RSpec",
+        "RabbitMQ",
+        "Rails",
+        "Ruby",
+        "Spring Boot"
+      ]
+    },
+    {
+      "focus": "Frontend",
+      "skills": [
+        "CSS",
+        "HTML",
+        "JavaScript",
+        "React",
+        "TailwindCSS",
+        "TypeScript"
+      ]
+    },
+    {
+      "focus": "Tooling, Techniques, and Other Skills",
+      "skills": [
+        "Agile Web Development",
+        "Confluence",
+        "Domain Driven Design",
+        "Git",
+        "JIRA",
+        "Kubernetes",
+        "Object Oriented Programming",
+        "Pair Programming",
+        "Service Oriented Architecture",
+        "Test Driven Development",
+        "User Research"
+      ]
+    }
+  ],
   "education": {
     "name": "Northwestern University",
     "duration": "September 2010 - June 2014",

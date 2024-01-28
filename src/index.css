@@ -36,22 +36,3 @@ code {
   transform: rotate(-0deg);
   transition-duration: 400ms;
 }
-
-.resume-description-items {
-  list-style-type: disc;
-  padding: 0;
-  margin: 0;
-}
-
-.resume-skills {
-  list-style-type: disc;
-  columns: 2;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-links {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}

@@ -34,7 +34,7 @@ const Nav: FC = () => {
           John Le
         </NavLink>
       </h1>
-      <ul className="nav-links label-large">
+      <ul className="nav-links label-large list-none p-0 m-0">
         <li>
           <NavLink
             to="/"

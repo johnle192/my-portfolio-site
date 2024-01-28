@@ -42,21 +42,28 @@ export default function Resume() {
           Education
         </button>
       </div>
-      <div className="my-2">
+      <div className="py-2">
         {resumeSection === 'experience' &&
           resumeItems.experience.map((resumeItem: ResumeItemProps) => (
             <ResumeItem {...resumeItem} />
           ))}
 
         {resumeSection === 'skills' && (
-          <div className="pl-8">
-            <ul className="resume-skills">
-              {resumeItems.skills.map((skill: string) => (
-                <li key={skill} className="leading-relaxed">
-                  {skill}
-                </li>
-              ))}
-            </ul>
+          <div className="">
+            {resumeItems.skills.map(({ focus, skills }) => (
+              <div className={`resume-skills-${focus} py-2`}>
+                <div className={`resume-skills-${focus}-name headline-small`}>
+                  {focus}
+                </div>
+                <ul className="resume-skills list-disc columns-2 py-0 px-4 m-0">
+                  {skills.map((skill: string) => (
+                    <li key={skill} className="leading-relaxed">
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         )}
 
