@@ -10,31 +10,37 @@ export default function Resume() {
   return (
     <div className="resume-container m-20 max-w-3xl">
       <h2 className="headline-large"> Resume </h2>
-      <div className="flex space-x-4 on-primary-container-text">
-        <div
-          className={`hover:text-primary cursor-pointer headline-small ${
-            resumeSection === 'experience' && 'primary-text'
+      <div className="flex space-x-4 text-primary">
+        <button
+          className={`hover:bg-surface-variant body-large font-bold py-2 px-4 rounded ${
+            resumeSection === 'experience'
+              ? 'bg-surface-variant'
+              : 'bg-transparent '
           }`}
           onClick={() => setResumeSection('experience')}
         >
           Experience
-        </div>
-        <div
-          className={`hover:text-primary cursor-pointer headline-small ${
-            resumeSection === 'skills' && 'primary-text'
+        </button>
+        <button
+          className={`hover:bg-surface-variant body-large font-bold py-2 px-4 rounded ${
+            resumeSection === 'skills'
+              ? 'bg-surface-variant'
+              : 'bg-transparent '
           }`}
           onClick={() => setResumeSection('skills')}
         >
           Skills
-        </div>
-        <div
-          className={`hover:text-primary cursor-pointer headline-small ${
-            resumeSection === 'education' && 'primary-text'
+        </button>
+        <button
+          className={`hover:bg-surface-variant body-large font-bold py-2 px-4 rounded ${
+            resumeSection === 'education'
+              ? 'bg-surface-variant'
+              : 'bg-transparent '
           }`}
           onClick={() => setResumeSection('education')}
         >
           Education
-        </div>
+        </button>
       </div>
       <div className="my-2">
         {resumeSection === 'experience' &&

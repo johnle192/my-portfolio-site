@@ -16,6 +16,9 @@ module.exports = {
         '.text-secondary': {
           color: 'var(--md-sys-color-secondary)',
         },
+        '.bg-surface-variant': {
+          backgroundColor: 'var(--md-sys-color-surface-variant)',
+        }
       };
 
       addUtilities(newUtilities, ['responsive', 'hover']);
