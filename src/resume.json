@@ -2,19 +2,21 @@
   "experience": [
     {
       "id": "beyond",
-      "experience": "Senior Software Developer | Beyond Finance | Chicago, IL",
+      "experience": "Senior Software Engineer | Beyond Finance | Chicago, IL",
       "duration": "October 2023 - Present, Remotely",
       "descriptions": [
         "Implemented Knapsack Pro and cut test suite runtime by 50%",
-        "Integrated a third party vendor to enable multi-factor authentication",
-        "Facilitated the migration of credit pull vendors"
+        "Mentored junior product managers and developers on best practices",
+        "Refactored legacy code and facilitated the integration of a second credit pull vendor to provide redundancy for our customers"
       ]
     },
     {
       "id": "clearcover",
-      "experience": "Senior Software Developer | Clearcover, Inc. | Chicago, IL",
+      "experience": "Senior Software Engineer | Clearcover, Inc. | Chicago, IL",
       "duration": "June 2020 - September 2023, Remotely",
       "descriptions": [
+        "Designed and developed a commission service using Kotlin/Spring Boot to streamline secure collection of ACH information via our Agency web portal and automate monthly payout of commissions",
+        "Integrated an internal, real time AI/ML inference platform into our quoting platform resulting in a 3% increase in retention to second term and decreased loss ratio by 15.2%",
         "Won a hackathon building a deployment dashboard for our microservices with React, NextJS, and Tailwind",
         "Implemented features and AB tests for our onboarding flow when users need a quote for car insurance",
         "Designed and implemented an experiment to move our steps in the flow to increase funnel conversion by 2%",
@@ -26,7 +28,7 @@
     },
     {
       "id": "fooda",
-      "experience": "Software Developer | Fooda, Inc. | Chicago, IL",
+      "experience": "Software Engineer | Fooda, Inc. | Chicago, IL",
       "duration": "September 2018 - May 2020, Remotely since June 2019",
       "descriptions": [
         "Designed and implemented features for our Cafeteria Point-of-Sale system with an emphasis on performance",
@@ -39,7 +41,7 @@
     },
     {
       "id": "tc",
-      "experience": "Software Developer | Trunk Club | Chicago, IL",
+      "experience": "Software Engineer | Trunk Club | Chicago, IL",
       "duration": "January 2017 - August 2018",
       "descriptions": [
         "Architected and lead engineers on Trunk Club's first exchange experience which translated to a $1MM opportunity",
