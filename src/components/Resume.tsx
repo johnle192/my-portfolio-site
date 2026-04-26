@@ -8,11 +8,11 @@ export default function Resume() {
   const { name, duration, major } = resumeItems.education;
 
   return (
-    <div className="resume-container m-20 max-w-3xl">
+    <div className="resume-container m-6 md:m-20 max-w-3xl">
       <h2 className="headline-large"> Resume </h2>
       <div className="flex space-x-4 text-primary">
         <button
-          className={`hover:bg-surface-variant body-large font-bold py-2 px-4 rounded ${
+          className={`hover:bg-surface-variant text-sm md:text-base font-bold py-1.5 px-3 md:py-2 md:px-4 rounded ${
             resumeSection === 'experience'
               ? 'bg-surface-variant'
               : 'bg-transparent '
@@ -22,7 +22,7 @@ export default function Resume() {
           Experience
         </button>
         <button
-          className={`hover:bg-surface-variant body-large font-bold py-2 px-4 rounded ${
+          className={`hover:bg-surface-variant text-sm md:text-base font-bold py-1.5 px-3 md:py-2 md:px-4 rounded ${
             resumeSection === 'skills'
               ? 'bg-surface-variant'
               : 'bg-transparent '
@@ -32,7 +32,7 @@ export default function Resume() {
           Skills
         </button>
         <button
-          className={`hover:bg-surface-variant body-large font-bold py-2 px-4 rounded ${
+          className={`hover:bg-surface-variant text-sm md:text-base font-bold py-1.5 px-3 md:py-2 md:px-4 rounded ${
             resumeSection === 'education'
               ? 'bg-surface-variant'
               : 'bg-transparent '

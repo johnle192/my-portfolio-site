@@ -2,9 +2,13 @@ import React, { FC, useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import Contact from './Contact';
 
-const Nav: FC = () => {
+interface NavProps {
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
+}
+
+const Nav: FC<NavProps> = ({ isMenuOpen, toggleMenu }) => {
   const [activeNavItem, setActiveNavItem] = useState<string>('about');
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const location = useLocation();
   const lastModified = new Date(document.lastModified).toLocaleString('en-US', {
     day: 'numeric',
@@ -23,7 +27,7 @@ const Nav: FC = () => {
 
   const setNavItemAndClose = (menuItem: string): void => {
     setActiveNavItem(menuItem);
-    setIsMenuOpen(false);
+    toggleMenu();
   };
 
   return (
@@ -71,41 +75,8 @@ const Nav: FC = () => {
           <div>{lastModified}</div>
         </div>
       </div>
-      <div className="mobile-nav-container md:hidden w-full primary-container flex flex-col">
-        {isMenuOpen && (
-          <div className="flex flex-col items-center justify-center">
-            <ul className="nav-links label-large list-none p-0 m-0 flex flex-col justify-center">
-              <li>
-                <NavLink
-                  to="/"
-                  className={`headline-small hover:text-white ${
-                    activeNavItem === 'about' ? 'text-white' : ''
-                  }`}
-                  onClick={() => setNavItemAndClose('about')}
-                >
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/resume"
-                  className={`headline-small hover:text-white ${
-                    activeNavItem === 'resume' ? 'text-white' : ''
-                  }`}
-                  onClick={() => setNavItemAndClose('resume')}
-                >
-                  Resume
-                </NavLink>
-              </li>
-            </ul>
-            <Contact />
-            <div className={`text-secondary body-small pt-2 pb-4`}>
-              <div>Last updated:</div>
-              <div>{lastModified}</div>
-            </div>
-          </div>
-        )}
-        <div className="mobile-header flex flex-row items-center justify-between">
+      <div className="mobile-nav-container md:hidden w-full flex flex-col">
+        <div className="mobile-header flex flex-row items-center justify-between primary-container">
           <div className="p-4">
             <h1 className="nav-header headline-large">
               <NavLink to="/" onClick={() => setActiveNavItem('about')}>
@@ -113,12 +84,44 @@ const Nav: FC = () => {
               </NavLink>
             </h1>
           </div>
-          <div
-            role="button"
-            className="mobile-menu-icon"
-            onClick={() => setIsMenuOpen((prevState) => !prevState)}
-          >
+          <div role="button" className="mobile-menu-icon" onClick={toggleMenu}>
             <i className="fa-solid fa-bars p-4" />
+          </div>
+        </div>
+
+        <div
+          className={`mobile-menu flex flex-col items-center justify-center primary-container overflow-hidden ${
+            isMenuOpen ? 'max-h-screen' : 'max-h-0'
+          }`}
+        >
+          <ul className="nav-links label-large list-none p-0 m-0 flex flex-col justify-center">
+            <li>
+              <NavLink
+                to="/"
+                className={`headline-small hover:text-white ${
+                  activeNavItem === 'about' ? 'text-white' : ''
+                }`}
+                onClick={() => setNavItemAndClose('about')}
+              >
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/resume"
+                className={`headline-small hover:text-white ${
+                  activeNavItem === 'resume' ? 'text-white' : ''
+                }`}
+                onClick={() => setNavItemAndClose('resume')}
+              >
+                Resume
+              </NavLink>
+            </li>
+          </ul>
+          <Contact />
+          <div className={`text-secondary body-small pt-2 pb-4`}>
+            <div>Last updated:</div>
+            <div>{lastModified}</div>
           </div>
         </div>
       </div>
