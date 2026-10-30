@@ -45,13 +45,13 @@ export default function Resume() {
       <div className="py-2">
         {resumeSection === 'experience' &&
           resumeItems.experience.map((resumeItem: ResumeItemProps) => (
-            <ResumeItem {...resumeItem} />
+            <ResumeItem key={resumeItem.id} {...resumeItem} />
           ))}
 
         {resumeSection === 'skills' && (
           <div className="">
             {resumeItems.skills.map(({ focus, skills }) => (
-              <div className={`resume-skills-${focus} py-2`}>
+              <div key={focus} className={`resume-skills-${focus} py-2`}>
                 <div className={`resume-skills-${focus}-name headline-small`}>
                   {focus}
                 </div>

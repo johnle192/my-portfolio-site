@@ -7,7 +7,7 @@ export default function Contact() {
     <div className="contact-container">
       <div className="contact-icons flex justify-around">
         {icons.map((icon: IconLinkProps) => (
-          <IconLink {...icon} />
+          <IconLink key={icon.link} {...icon} />
         ))}
       </div>
     </div>

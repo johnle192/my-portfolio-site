@@ -2,13 +2,9 @@ import React, { FC, useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import Contact from './Contact';
 
-interface NavProps {
-  isMenuOpen: boolean;
-  toggleMenu: () => void;
-}
-
-const Nav: FC<NavProps> = ({ isMenuOpen, toggleMenu }) => {
+const Nav: FC = () => {
   const [activeNavItem, setActiveNavItem] = useState<string>('about');
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const location = useLocation();
   const lastModified = new Date(document.lastModified).toLocaleString('en-US', {
     day: 'numeric',
@@ -27,7 +23,7 @@ const Nav: FC<NavProps> = ({ isMenuOpen, toggleMenu }) => {
 
   const setNavItemAndClose = (menuItem: string): void => {
     setActiveNavItem(menuItem);
-    toggleMenu();
+    setIsMenuOpen(false);
   };
 
   return (
@@ -84,12 +80,20 @@ const Nav: FC<NavProps> = ({ isMenuOpen, toggleMenu }) => {
               </NavLink>
             </h1>
           </div>
-          <div role="button" className="mobile-menu-icon" onClick={toggleMenu}>
-            <i className="fa-solid fa-bars p-4" />
-          </div>
+          <button
+            type="button"
+            className="mobile-menu-icon p-4 text-2xl"
+            aria-label="Menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setIsMenuOpen((prevState) => !prevState)}
+          >
+            <i className="fa-solid fa-bars" />
+          </button>
         </div>
 
         <div
+          id="mobile-menu"
           className={`mobile-menu flex flex-col items-center justify-center primary-container overflow-hidden ${
             isMenuOpen ? 'max-h-screen' : 'max-h-0'
           }`}
