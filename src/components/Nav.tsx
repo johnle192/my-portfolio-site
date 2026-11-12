@@ -75,7 +75,12 @@ const Nav: FC = () => {
       </div>
       <div className="mobile-nav-container md:hidden w-full flex flex-col">
         <div className="mobile-header flex flex-row items-center justify-between bg-primary-container">
-          <div className="p-4">
+          <div className="p-4 flex flex-row items-center gap-3">
+            <img
+              src="/images/john.jpg"
+              alt="John Le"
+              className="h-12 w-12 rounded-full object-cover shadow-md"
+            />
             <h1 className="nav-header font-headline-large text-headline-large">
               <NavLink to="/" onClick={() => setActiveNavItem('about')}>
                 John Le
@@ -97,10 +102,10 @@ const Nav: FC = () => {
         <div
           id="mobile-menu"
           className={`mobile-menu flex flex-col items-center justify-center bg-primary-container overflow-hidden ${
-            isMenuOpen ? 'max-h-screen' : 'max-h-0'
+            isMenuOpen ? 'max-h-screen visible' : 'max-h-0 invisible'
           }`}
         >
-          <ul className="nav-links font-label-large text-label-large list-none p-0 m-0 flex flex-col justify-center">
+          <ul className="nav-links font-label-large text-label-large list-none p-0 m-0 flex flex-col justify-center text-center">
             <li>
               <NavLink
                 to="/"
@@ -126,7 +131,7 @@ const Nav: FC = () => {
           </ul>
           <Contact />
           <div
-            className={`text-secondary font-body-small text-body-small pt-2 pb-4`}
+            className={`text-secondary font-body-small text-body-small text-center pt-2 pb-4`}
           >
             <div>Last updated:</div>
             <div>{lastModified}</div>

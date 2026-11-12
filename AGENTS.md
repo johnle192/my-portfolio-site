@@ -100,6 +100,11 @@ can't check visually at all, say so and tell the owner what to look at.
 - Nav owns the mobile menu's open/closed state (`isMenuOpen`). Mobile links call
   `setNavItemAndClose(...)` so the menu closes after you navigate. New mobile
   links must do the same, or the menu stays open on top of the new page.
+- The closed menu is `max-h-0 invisible`. `max-h-0` only collapses it visually;
+  `invisible` (`visibility: hidden`) is what keeps its links out of the Tab
+  order and away from screen readers. `index.css` transitions `visibility`
+  alongside `max-height`, so the links stay visible until the slide-up
+  finishes. Don't drop either class.
 
 ## Rules from bugs actually hit here
 
@@ -181,8 +186,6 @@ firebase deploy --only hosting
 
 Change these only when asked, each in its own focused change:
 
-- When the mobile menu is closed (`max-h-0`), its links can still be reached
-  with Tab. The owner deferred this on purpose.
 - `ResumeItem.tsx` still uses a `<div role="button">` for the expand toggle. It's
   the same keyboard problem the hamburger had.
 - The contact icon links (`IconLink.tsx`) contain only an `<i>` icon and have no

@@ -15,6 +15,7 @@ export default function ResumeItem({
 }: ResumeItemProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const iconRotationClass = isOpen ? 'is-open' : 'is-closed';
+  const [role, ...place] = experience.split(' | ');
   const borderClass = isOpen
     ? 'border-b border-on-primary-container border-solid'
     : '';
@@ -35,7 +36,15 @@ export default function ResumeItem({
       <div>
         <div className={`resume-content py-2 ${borderClass}`}>
           <div className="resume-experience font-headline-small text-headline-small">
-            {experience}
+            {role}
+            {place.length > 0 && (
+              <>
+                <span className="hidden md:inline"> | </span>
+                <span className="block font-title-medium text-title-medium md:inline md:font-headline-small md:text-headline-small">
+                  {place.join(' | ')}
+                </span>
+              </>
+            )}
           </div>
           <div className="resume-duration font-body-medium text-body-medium">
             {duration}

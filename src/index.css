@@ -37,6 +37,7 @@ code {
   transition-duration: 400ms;
 }
 
+/* visibility waits until the slide-up finishes before hiding the links */
 .mobile-menu {
-  transition: max-height 0.5s ease-out;
+  transition: max-height 0.5s ease-out, visibility 0.5s;
 }
