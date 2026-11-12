@@ -6,7 +6,7 @@ import Nav from './components/Nav';
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="App primary-text flex md:flex-row flex-col overflow-auto">
+      <div className="App text-primary flex md:flex-row flex-col overflow-auto">
         <Nav />
         <main className="App-main">
           <Routes>

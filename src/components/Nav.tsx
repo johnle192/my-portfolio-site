@@ -28,7 +28,7 @@ const Nav: FC = () => {
 
   return (
     <>
-      <div className="nav-container hidden md:block p-12 shadow-xl primary-container sticky top-0 h-screen">
+      <div className="nav-container hidden md:block p-12 shadow-xl bg-primary-container sticky top-0 h-screen">
         <div className="h-32 w-32 rounded-full overflow-hidden shadow-xl">
           <img
             src="/images/john.jpg"
@@ -36,16 +36,16 @@ const Nav: FC = () => {
             className="h-full-w-full object-cover"
           />
         </div>
-        <h1 className="nav-header headline-large">
+        <h1 className="nav-header font-headline-large text-headline-large">
           <NavLink to="/" onClick={() => setActiveNavItem('about')}>
             John Le
           </NavLink>
         </h1>
-        <ul className="nav-links label-large list-none p-0 m-0">
+        <ul className="nav-links font-label-large text-label-large list-none p-0 m-0">
           <li>
             <NavLink
               to="/"
-              className={`headline-small hover:text-white ${
+              className={`font-headline-small text-headline-small hover:text-white ${
                 activeNavItem === 'about' ? 'text-white' : ''
               }`}
               onClick={() => setActiveNavItem('about')}
@@ -56,7 +56,7 @@ const Nav: FC = () => {
           <li>
             <NavLink
               to="/resume"
-              className={`headline-small hover:text-white ${
+              className={`font-headline-small text-headline-small hover:text-white ${
                 activeNavItem === 'resume' ? 'text-white' : ''
               }`}
               onClick={() => setActiveNavItem('resume')}
@@ -66,15 +66,17 @@ const Nav: FC = () => {
           </li>
         </ul>
         <Contact />
-        <div className={`text-secondary body-small absolute bottom-0 my-4`}>
+        <div
+          className={`text-secondary font-body-small text-body-small absolute bottom-0 my-4`}
+        >
           <div>Last updated:</div>
           <div>{lastModified}</div>
         </div>
       </div>
       <div className="mobile-nav-container md:hidden w-full flex flex-col">
-        <div className="mobile-header flex flex-row items-center justify-between primary-container">
+        <div className="mobile-header flex flex-row items-center justify-between bg-primary-container">
           <div className="p-4">
-            <h1 className="nav-header headline-large">
+            <h1 className="nav-header font-headline-large text-headline-large">
               <NavLink to="/" onClick={() => setActiveNavItem('about')}>
                 John Le
               </NavLink>
@@ -94,15 +96,15 @@ const Nav: FC = () => {
 
         <div
           id="mobile-menu"
-          className={`mobile-menu flex flex-col items-center justify-center primary-container overflow-hidden ${
+          className={`mobile-menu flex flex-col items-center justify-center bg-primary-container overflow-hidden ${
             isMenuOpen ? 'max-h-screen' : 'max-h-0'
           }`}
         >
-          <ul className="nav-links label-large list-none p-0 m-0 flex flex-col justify-center">
+          <ul className="nav-links font-label-large text-label-large list-none p-0 m-0 flex flex-col justify-center">
             <li>
               <NavLink
                 to="/"
-                className={`headline-small hover:text-white ${
+                className={`font-headline-small text-headline-small hover:text-white ${
                   activeNavItem === 'about' ? 'text-white' : ''
                 }`}
                 onClick={() => setNavItemAndClose('about')}
@@ -113,7 +115,7 @@ const Nav: FC = () => {
             <li>
               <NavLink
                 to="/resume"
-                className={`headline-small hover:text-white ${
+                className={`font-headline-small text-headline-small hover:text-white ${
                   activeNavItem === 'resume' ? 'text-white' : ''
                 }`}
                 onClick={() => setNavItemAndClose('resume')}
@@ -123,7 +125,9 @@ const Nav: FC = () => {
             </li>
           </ul>
           <Contact />
-          <div className={`text-secondary body-small pt-2 pb-4`}>
+          <div
+            className={`text-secondary font-body-small text-body-small pt-2 pb-4`}
+          >
             <div>Last updated:</div>
             <div>{lastModified}</div>
           </div>

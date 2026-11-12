@@ -34,8 +34,12 @@ export default function ResumeItem({
       </div>
       <div>
         <div className={`resume-content py-2 ${borderClass}`}>
-          <div className="resume-experience headline-small">{experience}</div>
-          <div className="resume-duration body-medium">{duration}</div>
+          <div className="resume-experience font-headline-small text-headline-small">
+            {experience}
+          </div>
+          <div className="resume-duration font-body-medium text-body-medium">
+            {duration}
+          </div>
         </div>
         {isOpen && (
           <div className="resume-description ml-4 my-2">

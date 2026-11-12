@@ -9,7 +9,7 @@ export default function Resume() {
 
   return (
     <div className="resume-container m-6 md:m-20 max-w-3xl">
-      <h2 className="headline-large"> Resume </h2>
+      <h2 className="font-headline-large text-headline-large"> Resume </h2>
       <div className="flex space-x-4 text-primary">
         <button
           className={`hover:bg-surface-variant text-sm md:text-base font-bold py-1.5 px-3 md:py-2 md:px-4 rounded ${
@@ -52,7 +52,9 @@ export default function Resume() {
           <div className="">
             {resumeItems.skills.map(({ focus, skills }) => (
               <div key={focus} className={`resume-skills-${focus} py-2`}>
-                <div className={`resume-skills-${focus}-name headline-small`}>
+                <div
+                  className={`resume-skills-${focus}-name font-headline-small text-headline-small`}
+                >
                   {focus}
                 </div>
                 <ul className="resume-skills list-disc columns-2 py-0 px-4 m-0">
@@ -69,11 +71,15 @@ export default function Resume() {
 
         {resumeSection === 'education' && (
           <div className="resume-education">
-            <div className="resume-education-name headline-small">{name}</div>
-            <div className="resume-education-duration body-medium">
+            <div className="resume-education-name font-headline-small text-headline-small">
+              {name}
+            </div>
+            <div className="resume-education-duration font-body-medium text-body-medium">
               {duration}
             </div>
-            <div className="resume-education-major body-medium">{major}</div>
+            <div className="resume-education-major font-body-medium text-body-medium">
+              {major}
+            </div>
           </div>
         )}
       </div>
