@@ -17,3 +17,15 @@ The page will reload if you make edits.
 ### `npm run build`
 
 Builds the app for production to the `dist` folder.
+
+## Deploying
+
+The site is hosted on Firebase Hosting. Nothing deploys automatically, so pushing to GitHub does not update the live site.
+
+```sh
+npm run build
+firebase deploy --only hosting
+```
+
+This needs the Firebase CLI (`npm install -g firebase-tools`, Node 20+) and the
+local `firebase.json` and `.firebaserc`, which are currently gitignored.
