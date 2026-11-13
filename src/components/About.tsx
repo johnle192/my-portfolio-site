@@ -1,4 +1,3 @@
-import Contact from './Contact';
 
 export default function About() {
   return (
@@ -12,9 +11,6 @@ export default function About() {
         <h1 className="mt-6 font-display-small text-display-small font-bold">
           John Le
         </h1>
-        <div className="mt-2">
-          <Contact />
-        </div>
       </div>
       <h2 className="mt-10 font-headline-small text-headline-small">
         About Me
