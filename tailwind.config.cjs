@@ -67,13 +67,19 @@ module.exports = {
         scrim: 'var(--md-sys-color-scrim)'
       },
       // Typescale: pair `font-<role>` with `text-<role>`, e.g.
-      // `font-headline-large text-headline-large`. fontSize deliberately sets
-      // only font-size (no line-height/letter-spacing/weight) to match what
-      // the old hand-written .headline-large etc. classes actually rendered.
-      // Line height and tracking are available opt-in as
-      // `leading-<role>` / `tracking-<role>`.
+      // `font-headline-large text-headline-large`. `text-<role>` sets
+      // font-size and font-weight (400 or 500 per MD3). Line height and
+      // tracking are opt-in as `leading-<role>` / `tracking-<role>`.
       fontFamily: typescale('font-family-name'),
-      fontSize: typescale('font-size'),
+      fontSize: Object.fromEntries(
+        typescaleRoles.map((role) => [
+          role,
+          [
+            `var(--md-sys-typescale-${role}-font-size)`,
+            { fontWeight: `var(--md-sys-typescale-${role}-font-weight)` }
+          ]
+        ])
+      ),
       lineHeight: typescale('line-height'),
       letterSpacing: typescale('letter-spacing')
     }
