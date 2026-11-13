@@ -16,50 +16,38 @@ export default function ResumeItem({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const iconRotationClass = isOpen ? 'is-open' : 'is-closed';
   const [role, ...place] = experience.split(' | ');
-  const borderClass = isOpen
-    ? 'border-b border-on-primary-container border-solid'
-    : '';
 
   return (
-    <div className="resume-item flex" key={id}>
-      <div
-        role="button"
-        className=""
-        onClick={() => setIsOpen((prevState) => !prevState)}
-      >
+    <div className="resume-item flex py-4 border-b border-outline-variant last:border-b-0">
+      <div role="button" onClick={() => setIsOpen((prevState) => !prevState)}>
         <div
-          className={`m-4 text-center align-middle icon ${iconRotationClass}`}
+          className={`mr-4 mt-1 text-center text-primary icon ${iconRotationClass}`}
         >
           <i className="resume-icon fa-solid fa-plus" />
         </div>
       </div>
       <div>
-        <div className={`resume-content py-2 ${borderClass}`}>
-          <div className="resume-experience font-headline-small text-headline-small">
+        <div className="resume-content">
+          <h2 className="resume-experience font-title-large text-title-large">
             {role}
-            {place.length > 0 && (
-              <>
-                <span className="hidden md:inline"> | </span>
-                <span className="block font-title-medium text-title-medium md:inline md:font-headline-small md:text-headline-small">
-                  {place.join(' | ')}
-                </span>
-              </>
-            )}
-          </div>
-          <div className="resume-duration font-body-medium text-body-medium">
+          </h2>
+          {place.length > 0 && (
+            <div className="font-title-medium text-title-medium text-on-surface-variant">
+              {place.join(' | ')}
+            </div>
+          )}
+          <div className="resume-duration mt-1 font-body-medium text-body-medium text-on-surface-variant">
             {duration}
           </div>
         </div>
         {isOpen && (
-          <div className="resume-description ml-4 my-2">
-            <ul className="resume-description-items list-disc p-0 m-0">
-              {descriptions.map((description: string, index) => (
-                <li key={`${id}.${index}`} className="leading-relaxed">
-                  {description}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="resume-description-items mt-3 list-disc pl-5 m-0 font-body-medium text-body-medium">
+            {descriptions.map((description: string, index) => (
+              <li key={`${id}.${index}`} className="leading-relaxed">
+                {description}
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </div>
