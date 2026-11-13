@@ -19,15 +19,17 @@ John Le's personal portfolio site. It has two pages: About (`/`) and Resume
   components.
 - **Layout:** Tailwind's `md` breakpoint (768px) is where mobile switches to
   desktop. Unprefixed classes apply to mobile, and `md:` classes apply to
-  desktop. Desktop has a sticky sidebar next to the content. Mobile has a top bar
-  with a slide-down menu.
+  desktop. Every page is a top nav bar, one centered column (`max-w-2xl`) and a
+  footer. On desktop the nav links sit in the bar; on mobile they're in a
+  slide-down menu behind a hamburger button.
 
 ```
 src/
   index.tsx                 entry point (React StrictMode)
   App.tsx                   router: / -> About, /resume -> Resume
-  components/Nav.tsx        desktop sidebar AND mobile top bar + menu (see below)
-  components/About.tsx      About text is written directly in this file
+  components/Nav.tsx        top bar, desktop links AND mobile menu; exports navItems
+  components/Footer.tsx     repeats the nav links, contact icons, "Last updated"
+  components/About.tsx      photo/name hero; About text is written in this file
   components/Resume.tsx     Experience / Skills / Education tabs
   components/ResumeItem.tsx one expandable experience entry
   components/Contact.tsx    contact icon row, rendered from icons.json
@@ -93,13 +95,16 @@ can't check visually at all, say so and tell the owner what to look at.
 
 ## Nav rules (`src/components/Nav.tsx`)
 
-- **The file renders two separate navs.** One is the desktop sidebar
-  (`hidden md:block`). The other is the mobile top bar with a slide-down menu
-  (`md:hidden`). The link list is written out twice, so **any nav link change has
-  to be made in both places.**
+- **Nav links come from one list, `navItems` in `Nav.tsx`.** The desktop links
+  (`hidden md:flex`), the mobile menu (`md:hidden`) and `Footer.tsx` all render
+  from it, so add or rename a page there. (Before the 2026-11-12 redesign the
+  list was written out twice, which was easy to get out of sync.)
+- The current page is styled by `navLinkClass`, which uses NavLink's
+  `isActive`. Links to `/` need the `end` prop, or About shows as active on
+  every page.
 - Nav owns the mobile menu's open/closed state (`isMenuOpen`). Mobile links call
-  `setNavItemAndClose(...)` so the menu closes after you navigate. New mobile
-  links must do the same, or the menu stays open on top of the new page.
+  `setIsMenuOpen(false)` on click so the menu closes after you navigate. New
+  mobile links must do the same, or the menu stays open on top of the new page.
 - The closed menu is `max-h-0 invisible`. `max-h-0` only collapses it visually;
   `invisible` (`visibility: hidden`) is what keeps its links out of the Tab
   order and away from screen readers. `index.css` transitions `visibility`
@@ -136,9 +141,12 @@ in CSS variables, and `tailwind.config.cjs` only points Tailwind at them.
 - **Use the theme color names, not raw Tailwind colors.** Write `bg-primary-container`,
   `text-primary`, `text-secondary`, `bg-surface-variant`,
   `border-on-primary-container`, and so on. They switch automatically in dark
-  mode. Raw colors like `bg-white` or `text-gray-900` don't. (`hover:text-white`
-  on the nav links is an existing exception.) The names match the owner's
-  food-journal repo on purpose.
+  mode. Raw colors like `bg-white` or `text-gray-900` don't. The names match the
+  owner's food-journal repo on purpose.
+  - **The color scheme (2026-11-12 redesign):** text is `text-on-surface`,
+    secondary text is `text-on-surface-variant`, dividers are
+    `border-outline-variant`, and `text-primary` (blue) is only for links, the
+    active nav item/tab and the resume expand icons.
   - Each `on-X` color is meant for content placed on top of `X`.
     `text-on-primary` belongs on `bg-primary`. On any other background it can be
     hard to read.
@@ -147,13 +155,19 @@ in CSS variables, and `tailwind.config.cjs` only points Tailwind at them.
 - **Text styles come in pairs:** `font-<role> text-<role>`, for example
   `font-headline-large text-headline-large`. Roles are display, headline, title,
   body and label, each in large, medium or small. `font-<role>` sets the font
-  family (Roboto) and `text-<role>` sets only the font size.
-- **Why only size:** the old CSS classes never applied the rest of the MD3 scale
-  (see Known issues). The refactor kept what the site actually renders.
+  family (Roboto) and `text-<role>` sets the font size and the MD3 weight (400,
+  or 500 for title-medium/small and label). Add `font-bold` after it for a
+  heavier heading; Tailwind emits weight utilities after size, so it wins.
   `leading-<role>` and `tracking-<role>` exist if you want the token line height
   or letter spacing, but using them changes how text looks, so treat that as a
   design change.
-- **The 2026-11-12 refactor was verified pixel for pixel.** 26 screenshots (light
+- **Font weights in `tokens.css` must be unitless** (`500`, not `500px`). The
+  tokens shipped as `400px`/`500px` from 2023 until 2026-11-12. Why it went
+  unnoticed: an invalid value inside `var()` doesn't error, the browser just
+  treats the property as unset, so every weight silently rendered as 400.
+- `index.html` loads Roboto at weights 400, 500 and 700. Using another weight
+  means adding it to that Google Fonts URL, or the browser fakes it.
+- **The 2026-11-12 token refactor was verified pixel for pixel.** 26 screenshots (light
   and dark, 1280x800 and 390x844, every page and tab, open mobile menu) matched
   before and after. A styling refactor that's supposed to look the same should
   meet the same bar: compare screenshots, not just the build.
@@ -186,22 +200,13 @@ firebase deploy --only hosting
 
 Change these only when asked, each in its own focused change:
 
-- `ResumeItem.tsx` still uses a `<div role="button">` for the expand toggle. It's
-  the same keyboard problem the hamburger had.
-- The contact icon links (`IconLink.tsx`) contain only an `<i>` icon and have no
-  `aria-label`, so screen readers have no name to announce.
-- The desktop headshot `<img>` in `Nav.tsx` has `className="h-full-w-full"`.
-  That looks like a typo for `h-full w-full` and isn't a real class.
 - The CRA leftovers listed under Commands: the test files, the
   `@testing-library/*` and `@types/jest` dependencies, `react-app-env.d.ts`, and
   the unused `eslintConfig` (`react-app`) block in `package.json`. ESLint
   actually uses `.eslintrc.cjs`.
-- **The MD3 typescale tokens are partly broken.** In `src/css/tokens.css`, font
-  weights are written as `400px`/`500px`, which isn't valid CSS, and the
-  `font-family-style` values (`Regular`, `Medium`) aren't valid either. That's
-  why `font-weight` isn't mapped in Tailwind. Fixing it, and turning on the full
-  scale (weights, line heights, letter spacing), changes how the site looks, so
-  it needs the owner's go-ahead.
+- The MD3 line heights and letter spacing aren't applied by default (see
+  Styling). Turning them on changes how the site looks, so it needs the owner's
+  go-ahead.
 
 ## Working agreements
 
