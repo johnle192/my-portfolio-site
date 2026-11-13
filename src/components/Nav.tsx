@@ -1,144 +1,76 @@
-import React, { FC, useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import Contact from './Contact';
+import React, { FC, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+
+// Single source for the nav links: the desktop bar, the mobile menu and the
+// footer all render from this list.
+export const navItems = [
+  { to: '/', label: 'About' },
+  { to: '/resume', label: 'Resume' }
+];
+
+// NavLink passes isActive, so the current page is styled without tracking
+// it in state.
+export const navLinkClass = ({ isActive }: { isActive: boolean }): string =>
+  isActive
+    ? 'text-primary underline decoration-2 underline-offset-8'
+    : 'text-on-surface-variant hover:text-primary';
 
 const Nav: FC = () => {
-  const [activeNavItem, setActiveNavItem] = useState<string>('about');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const location = useLocation();
-  const lastModified = new Date(document.lastModified).toLocaleString('en-US', {
-    day: 'numeric',
-    month: 'numeric',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    timeZone: 'UTC',
-    timeZoneName: 'short'
-  });
-
-  useEffect(() => {
-    const pathname = location.pathname;
-    setActiveNavItem(pathname === '/' ? 'about' : pathname.substring(1));
-  }, [location]);
-
-  const setNavItemAndClose = (menuItem: string): void => {
-    setActiveNavItem(menuItem);
-    setIsMenuOpen(false);
-  };
 
   return (
-    <>
-      <div className="nav-container hidden md:block p-12 shadow-xl bg-primary-container sticky top-0 h-screen">
-        <div className="h-32 w-32 rounded-full overflow-hidden shadow-xl">
-          <img
-            src="/images/john.jpg"
-            alt="John Le"
-            className="h-full-w-full object-cover"
-          />
-        </div>
-        <h1 className="nav-header font-headline-large text-headline-large">
-          <NavLink to="/" onClick={() => setActiveNavItem('about')}>
-            John Le
-          </NavLink>
-        </h1>
-        <ul className="nav-links font-label-large text-label-large list-none p-0 m-0">
-          <li>
-            <NavLink
-              to="/"
-              className={`font-headline-small text-headline-small hover:text-white ${
-                activeNavItem === 'about' ? 'text-white' : ''
-              }`}
-              onClick={() => setActiveNavItem('about')}
-            >
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/resume"
-              className={`font-headline-small text-headline-small hover:text-white ${
-                activeNavItem === 'resume' ? 'text-white' : ''
-              }`}
-              onClick={() => setActiveNavItem('resume')}
-            >
-              Resume
-            </NavLink>
-          </li>
+    <header className="border-b border-outline-variant">
+      <nav className="max-w-2xl mx-auto px-6 h-16 flex items-center justify-between">
+        <NavLink
+          to="/"
+          className="font-title-large text-title-large text-on-surface"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          John Le
+        </NavLink>
+        <ul className="hidden md:flex gap-8 list-none p-0 m-0 font-title-medium text-title-medium">
+          {navItems.map(({ to, label }) => (
+            <li key={to}>
+              <NavLink to={to} end className={navLinkClass}>
+                {label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
-        <Contact />
-        <div
-          className={`text-secondary font-body-small text-body-small absolute bottom-0 my-4`}
+        <button
+          type="button"
+          className="md:hidden -mr-3 p-3 text-2xl text-on-surface-variant"
+          aria-label="Menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setIsMenuOpen((prevState) => !prevState)}
         >
-          <div>Last updated:</div>
-          <div>{lastModified}</div>
-        </div>
-      </div>
-      <div className="mobile-nav-container md:hidden w-full flex flex-col">
-        <div className="mobile-header flex flex-row items-center justify-between bg-primary-container">
-          <div className="p-4 flex flex-row items-center gap-3">
-            <img
-              src="/images/john.jpg"
-              alt="John Le"
-              className="h-12 w-12 rounded-full object-cover shadow-md"
-            />
-            <h1 className="nav-header font-headline-large text-headline-large">
-              <NavLink to="/" onClick={() => setActiveNavItem('about')}>
-                John Le
-              </NavLink>
-            </h1>
-          </div>
-          <button
-            type="button"
-            className="mobile-menu-icon p-4 text-2xl"
-            aria-label="Menu"
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setIsMenuOpen((prevState) => !prevState)}
-          >
-            <i className="fa-solid fa-bars" />
-          </button>
-        </div>
+          <i className="fa-solid fa-bars" />
+        </button>
+      </nav>
 
-        <div
-          id="mobile-menu"
-          className={`mobile-menu flex flex-col items-center justify-center bg-primary-container overflow-hidden ${
-            isMenuOpen ? 'max-h-screen visible' : 'max-h-0 invisible'
-          }`}
-        >
-          <ul className="nav-links font-label-large text-label-large list-none p-0 m-0 flex flex-col justify-center text-center">
-            <li>
+      <div
+        id="mobile-menu"
+        className={`mobile-menu md:hidden overflow-hidden ${
+          isMenuOpen ? 'max-h-screen visible' : 'max-h-0 invisible'
+        }`}
+      >
+        <ul className="list-none m-0 px-6 pb-4 font-title-medium text-title-medium">
+          {navItems.map(({ to, label }) => (
+            <li key={to}>
               <NavLink
-                to="/"
-                className={`font-headline-small text-headline-small hover:text-white ${
-                  activeNavItem === 'about' ? 'text-white' : ''
-                }`}
-                onClick={() => setNavItemAndClose('about')}
+                to={to}
+                end
+                className={(state) => `block py-3 ${navLinkClass(state)}`}
+                onClick={() => setIsMenuOpen(false)}
               >
-                About
+                {label}
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/resume"
-                className={`font-headline-small text-headline-small hover:text-white ${
-                  activeNavItem === 'resume' ? 'text-white' : ''
-                }`}
-                onClick={() => setNavItemAndClose('resume')}
-              >
-                Resume
-              </NavLink>
-            </li>
-          </ul>
-          <Contact />
-          <div
-            className={`text-secondary font-body-small text-body-small text-center pt-2 pb-4`}
-          >
-            <div>Last updated:</div>
-            <div>{lastModified}</div>
-          </div>
-        </div>
+          ))}
+        </ul>
       </div>
-    </>
+    </header>
   );
 };
 
