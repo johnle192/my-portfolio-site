@@ -8,7 +8,7 @@ export default function Resume() {
   const { name, duration, major } = resumeItems.education;
 
   return (
-    <div className="resume-container m-6 md:m-20 max-w-3xl">
+    <div className="resume-container">
       <h2 className="font-headline-large text-headline-large"> Resume </h2>
       <div className="flex space-x-4 text-primary">
         <button

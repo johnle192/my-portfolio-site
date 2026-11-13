@@ -5,7 +5,7 @@ import icons from 'icons.json';
 export default function Contact() {
   return (
     <div className="contact-container">
-      <div className="contact-icons flex justify-around">
+      <div className="contact-icons flex justify-center gap-2 text-xl">
         {icons.map((icon: IconLinkProps) => (
           <IconLink key={icon.link} {...icon} />
         ))}
