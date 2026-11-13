@@ -18,19 +18,25 @@ export default function ResumeItem({
   const [role, ...place] = experience.split(' | ');
 
   return (
-    <div className="resume-item flex py-4 border-b border-outline-variant last:border-b-0">
-      <div role="button" onClick={() => setIsOpen((prevState) => !prevState)}>
-        <div
-          className={`mr-4 mt-1 text-center text-primary icon ${iconRotationClass}`}
+    <div className="resume-item py-4 border-b border-outline-variant last:border-b-0">
+      <h2 className="resume-experience font-title-large text-title-large">
+        <button
+          type="button"
+          className="flex w-full items-baseline gap-4 text-left"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((prevState) => !prevState)}
         >
-          <i className="resume-icon fa-solid fa-plus" />
-        </div>
-      </div>
-      <div>
+          <span
+            aria-hidden="true"
+            className={`w-4 shrink-0 text-center text-primary icon ${iconRotationClass}`}
+          >
+            <i className="resume-icon fa-solid fa-plus" />
+          </span>
+          <span>{role}</span>
+        </button>
+      </h2>
+      <div className="pl-8">
         <div className="resume-content">
-          <h2 className="resume-experience font-title-large text-title-large">
-            {role}
-          </h2>
           {place.length > 0 && (
             <div className="font-title-medium text-title-medium text-on-surface-variant">
               {place.join(' | ')}
