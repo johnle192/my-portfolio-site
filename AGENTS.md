@@ -57,7 +57,9 @@ is no npm package for it, so icons won't show up offline.
 | `npx eslint src` | Lint with `.eslintrc.cjs`. There's no npm script for it. | **Passes** with no output. |
 | tests | None | **Can't run.** See below. |
 
-**There are no runnable tests and no CI.** `package.json` has no `test` script,
+**There are no runnable tests.** The only CI is the deploy workflows (see
+Deploying), which run `npm ci && npm run build` and nothing else, so a passing
+GitHub check means the build passed. `package.json` has no `test` script,
 and no test runner (Jest, Vitest, react-scripts) is installed. `src/App.test.tsx`,
 `src/setupTests.ts`, `src/react-app-env.d.ts` and the `@testing-library/*` and
 `@types/jest` dependencies are leftovers from Create React App. The one test
@@ -174,19 +176,34 @@ in CSS variables, and `tailwind.config.cjs` only points Tailwind at them.
 - **Tailwind only generates classes it finds as complete strings in the source.**
   Never build a class name from pieces, like `` `text-${role}` ``.
 
-## Deploying (only when the owner asks)
+## Deploying
+
+GitHub Actions deploys the site, set up with `firebase init hosting:github`
+(PR #2, 2026-11-14). There are two workflows in `.github/workflows/`:
+
+- **`firebase-hosting-merge.yml`: every push to `main` deploys to the live
+  site**, with no review step. Pushing to `main` _is_ deploying.
+- **`firebase-hosting-pull-request.yml`:** every PR from this repo deploys to a
+  temporary preview channel, and the bot comments the URL on the PR. It doesn't
+  touch the live site. First verified on PR #2.
+- Both run `npm ci && npm run build` on **Node 22** (pinned with
+  `actions/setup-node`; the generated files had no pin). The owner's machine is
+  on Node 20, so if a build passes locally but fails in CI, check the Node
+  version first.
+- Firebase credentials live in the `FIREBASE_SERVICE_ACCOUNT_JOHN_S_WEBSITE_65ECA`
+  repo secret, never in the workflow files.
+- The Firebase project and site is `john-s-website-65eca`
+  (https://john-s-website-65eca.web.app).
+- `firebase.json` and `.firebaserc` are committed, so CI and worktrees have
+  them. `.firebase/` (a local deploy cache) stays gitignored.
+
+A manual deploy still works as a fallback (only when the owner asks):
 
 ```sh
 npm run build
 firebase deploy --only hosting
 ```
 
-- Pushing to GitHub does **not** deploy anything.
-- The Firebase project and site is `john-s-website-65eca`
-  (https://john-s-website-65eca.web.app).
-- `firebase.json` and `.firebaserc` are **gitignored**. They exist only in the
-  owner's main checkout, not in clones or worktrees, so deploys have to run from
-  the main checkout.
 - Firebase CLI 15.x needs **Node 20+**.
 - **Auth trap (real incident, 2026-11-12):** an expired saved login made every API
   call return 401. The CLI showed misleading errors instead:
@@ -211,7 +228,9 @@ Change these only when asked, each in its own focused change:
 ## Working agreements
 
 - **Don't commit, push, or deploy unless the owner asks.** The owner makes local
-  commits and checks deploys themself.
+  commits and checks deploys themself. The owner sometimes pushes to `main`
+  directly, but agents shouldn't, because it goes live. Push a branch and open
+  a PR (`gh pr create`), and the owner merges.
 - Don't add dependencies unless asked. Use scratch directories for one-off
   tooling, as with Playwright above.
 - Keep changes small and match the surrounding code: function components, props
